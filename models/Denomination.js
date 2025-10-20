@@ -13,8 +13,8 @@ const denominationSchema = new mongoose.Schema({
   RS_1: Number,
   Total_Amount: Number,
   Total_Number_of_Notes: Number,
-  Created_On: Date,
-  Updated_On: Date
+  Created_On: { type: mongoose.Schema.Types.Mixed },
+  Updated_On: { type: mongoose.Schema.Types.Mixed }
 });
 
 module.exports = mongoose.model('Denomination', denominationSchema);

@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const {
+  createDenomination,
+  viewDenominations,
+  depositCalculator
+} = require('../controllers/denominationController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-const denominationController = require('../controllers/denominationController.js');
-
-console.log("DEBUG: Route handlers loaded:", denominationController);
-
-router.post('/create', denominationController.createDenomination);
-router.get('/view', denominationController.viewDenominations);
-router.get('/deposit', denominationController.depositCalculator);
+router.post('/', authMiddleware, createDenomination);
+router.get('/', authMiddleware, viewDenominations);
+router.post('/deposit', authMiddleware, depositCalculator);
 
 module.exports = router;
