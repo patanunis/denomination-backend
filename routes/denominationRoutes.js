@@ -12,3 +12,5 @@ router.get('/', authMiddleware, viewDenominations);
 router.post('/deposit', authMiddleware, depositCalculator);
 
 module.exports = router;
+
+// Trigger redeploy: minor comment added for Railway sync
